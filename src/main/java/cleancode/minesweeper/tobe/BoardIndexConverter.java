@@ -7,14 +7,12 @@ public class BoardIndexConverter {
     public int getSelectedRowIndex(String cellInput) {
 
         String cellInputRow = cellInput.substring(1);
-
         return convertRowFrom(cellInputRow);
     }
 
     public int getSelectedColIndex(String cellInput) {
         char cellInputCol = cellInput.charAt(0);
-        int selectedColIndex = convertColFrom(cellInputCol);
-        return selectedColIndex;
+        return convertColFrom(cellInputCol);
     }
 
     public int convertRowFrom(String cellInputRow) {
@@ -22,6 +20,7 @@ public class BoardIndexConverter {
         if (rowIndex < 0) {
             throw new GameException("잘못된 입력입니다.");
         }
+
         return rowIndex;
     }
 

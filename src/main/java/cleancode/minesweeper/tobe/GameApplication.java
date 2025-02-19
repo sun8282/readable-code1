@@ -11,7 +11,7 @@ public class GameApplication {
 
 
     public static void main(String[] args) {
-        GameLevel gameLevel = new Advanced();
+        GameLevel gameLevel = new Beginner();
         InputHandler inputHandler = new ConsoleInputHandler();
         OutputHandler outputHandler = new ConsoleOutputHandler();
 

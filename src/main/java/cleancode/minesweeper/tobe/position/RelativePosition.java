@@ -48,4 +48,5 @@ public class RelativePosition {
     public int getDeltaCol() {
         return deltaCol;
     }
+
 }
