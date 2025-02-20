@@ -3,6 +3,7 @@ package cleancode.studycafe.tobe;
 import cleancode.studycafe.tobe.exception.AppException;
 import cleancode.studycafe.tobe.io.StudyCafeFileHandler;
 import cleancode.studycafe.tobe.io.StudyCafeIOHandler;
+import cleancode.studycafe.tobe.model.order.StudyCafePassOrder;
 import cleancode.studycafe.tobe.model.pass.*;
 import cleancode.studycafe.tobe.model.pass.locker.StudyCafeLockerPass;
 import cleancode.studycafe.tobe.model.pass.locker.StudyCafeLockerPasses;
@@ -14,19 +15,20 @@ public class StudyCafePassMachine {
 
     private final StudyCafeIOHandler ioHandler = new StudyCafeIOHandler();
     private final StudyCafeFileHandler studyCafeFileHandler = new StudyCafeFileHandler();
+
     public void run() {
         try {
             ioHandler.showWelcomeMessage();
             ioHandler.showAnnouncement();
 
             StudyCafeSeatPass selectedPass = selectPass();
-
             Optional<StudyCafeLockerPass> optionallockerPass = selectLockerPass(selectedPass);
-
-            optionallockerPass.ifPresentOrElse(
-                lockerPass -> ioHandler.showPassOrderSummary(selectedPass, lockerPass),
-                    () -> ioHandler.showPassOrderSummary(selectedPass, null)
+            StudyCafePassOrder passOrder = StudyCafePassOrder.of(
+                    selectedPass,
+                    optionallockerPass.orElse(null)
             );
+
+            ioHandler.showPassOrderSummary(passOrder);
 
         } catch (AppException e) {
             ioHandler.showSimpleMessage(e.getMessage());
@@ -49,7 +51,7 @@ public class StudyCafePassMachine {
     }
 
     private Optional<StudyCafeLockerPass> selectLockerPass(StudyCafeSeatPass selectedPass) {
-        if(selectedPass.cannotUserLocker()){
+        if (selectedPass.cannotUserLocker()) {
             return Optional.empty();
         }
 
@@ -58,7 +60,7 @@ public class StudyCafePassMachine {
         if (lockerPassCandidate.isPresent()) {
             StudyCafeLockerPass lockerPass = lockerPassCandidate.get();
             boolean isLockerSeleted = ioHandler.askLockerPass(lockerPass);
-            if(isLockerSeleted){
+            if (isLockerSeleted) {
                 return Optional.of(lockerPass);
             }
         }

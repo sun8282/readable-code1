@@ -15,7 +15,7 @@ public enum StudyCafePassType {
         this.description = description;
     }
 
-    public boolean isLockerType(){
+    public boolean isLockerType() {
         return LOCKER_TYPES.contains(this);
     }
 
