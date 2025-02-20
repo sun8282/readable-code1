@@ -28,7 +28,7 @@ public class BoardIndexConverter {
 
     public int convertColFrom(char cellInputCol) {
         int colIndex = cellInputCol - BASE_CHAR_FOR_COL;
-        if(colIndex < 0) {
+        if (colIndex < 0) {
             throw new GameException("잘못된 입력입니다.");
         }
         return colIndex;

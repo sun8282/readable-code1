@@ -6,14 +6,14 @@ import java.util.Objects;
 public class RelativePosition {
 
     public static final List<RelativePosition> SRROUNDED_POSITION = List.of(
-            RelativePosition.of(-1,-1),
-            RelativePosition.of(-1,0),
-            RelativePosition.of(-1,1),
-            RelativePosition.of(0,-1),
-            RelativePosition.of(0,1),
-            RelativePosition.of(1,-1),
-            RelativePosition.of(1,0),
-            RelativePosition.of(1,1)
+            RelativePosition.of(-1, -1),
+            RelativePosition.of(-1, 0),
+            RelativePosition.of(-1, 1),
+            RelativePosition.of(0, -1),
+            RelativePosition.of(0, 1),
+            RelativePosition.of(1, -1),
+            RelativePosition.of(1, 0),
+            RelativePosition.of(1, 1)
     );
 
 
@@ -25,8 +25,8 @@ public class RelativePosition {
         this.deltaCol = deltaCol;
     }
 
-    public static RelativePosition of(int deltaRow, int deltaCol){
-        return new RelativePosition(deltaRow,deltaCol);
+    public static RelativePosition of(int deltaRow, int deltaCol) {
+        return new RelativePosition(deltaRow, deltaCol);
     }
 
     @Override

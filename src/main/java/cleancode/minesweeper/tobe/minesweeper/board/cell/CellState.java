@@ -4,12 +4,12 @@ public class CellState {
     private boolean isFlagged;
     private boolean isOpened;
 
-    private CellState(boolean isFlagged, boolean isOpened){
+    private CellState(boolean isFlagged, boolean isOpened) {
         this.isFlagged = isFlagged;
         this.isOpened = isOpened;
     }
 
-    public static CellState initialize(){
+    public static CellState initialize() {
         return new CellState(false, false);
     }
 

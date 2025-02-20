@@ -13,20 +13,21 @@ public class CellPositions {
         this.positions = positions;
     }
 
-    public static CellPositions of(List<CellPosition> positions){
+    public static CellPositions of(List<CellPosition> positions) {
         return new CellPositions(positions);
     }
 
-    public static CellPositions from(Cell[][] borad){
+    public static CellPositions from(Cell[][] borad) {
         List<CellPosition> cellPositions = new ArrayList<>();
         for (int row = 0; row < borad.length; row++) {
             for (int col = 0; col < borad[0].length; col++) {
-                CellPosition cellPosition = CellPosition.of(row,col);
+                CellPosition cellPosition = CellPosition.of(row, col);
                 cellPositions.add(cellPosition);
             }
         }
         return of(cellPositions);
     }
+
     public List<CellPosition> extractRandomPositions(int count) {
         List<CellPosition> cellPositions = new ArrayList<>(positions);
         Collections.shuffle(cellPositions);

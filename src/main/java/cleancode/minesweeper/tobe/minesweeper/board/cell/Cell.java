@@ -2,14 +2,14 @@ package cleancode.minesweeper.tobe.minesweeper.board.cell;
 
 public interface Cell {
 
-     void flag();
+    void flag();
 
-     void open();
+    void open();
 
 
-     boolean isChecked();
+    boolean isChecked();
 
-     boolean isOpened();
+    boolean isOpened();
 
     boolean isLandMine();
 
